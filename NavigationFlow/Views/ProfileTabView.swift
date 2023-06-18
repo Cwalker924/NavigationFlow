@@ -13,8 +13,13 @@ struct ProfileTabView: View {
     var body: some View {
         NavigationStack {
             ProfileView(viewModel: viewModel, messageButtonTapped: { userId in
-                print(userId)
+                viewModel.goToChat(userId: userId)
             })
+            .navigationDestination(isPresented: $viewModel.showChatView) {
+                if let chatViewModel = viewModel.selectedChatViewModel {
+                    ChatView(viewModel: chatViewModel)
+                }
+            }
                 .navigationTitle(viewModel.navTitle)
         }
     }

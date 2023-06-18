@@ -19,4 +19,13 @@ class ProfileViewModel: ObservableObject {
         name = user.name
         navTitle = user.name
     }
+    
+    @Published var showChatView: Bool = false
+    @Published var selectedChatViewModel: ChatViewModel? {
+        didSet { showChatView = selectedChatViewModel != nil }
+    }
+    
+    func goToChat(userId: String) {
+        selectedChatViewModel = ChatViewModel(userId: userId)
+    }
 }
