@@ -20,7 +20,7 @@ struct ProfileTabView: View {
                     ChatView(viewModel: chatViewModel)
                 }
             }
-                .navigationTitle(viewModel.navTitle)
+            .navigationTitle(viewModel.navTitle)
         }
     }
 }
